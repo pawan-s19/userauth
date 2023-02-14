@@ -1,0 +1,20 @@
+.form-wrapper {
+  width: 25vmax;
+}
+input {
+  border-radius: 0.2em !important;
+  border: 1px solid rgb(169, 169, 169) !important;
+}
+button {
+  background-color: #003fb9 !important;
+  border-radius: 0.2em !important;
+  font-size: 1.3vmax !important;
+}
+.password {
+  position: relative;
+}
+.password img {
+  position: absolute;
+  bottom: 7px;
+  right: 10px;
+}

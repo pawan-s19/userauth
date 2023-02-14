@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "./app.css";
+import Welcome from "./Components/Welcome";
+import { Routes, Route } from "react-router-dom";
+import axios from "./axiosConfig/axios";
+import Profile from "./Components/Profile";
+import { useNavigate } from "react-router-dom";
+const App = () => {
+  const navigate = useNavigate();
+  const [user, setUser] = useState(null);
+  let getUser = async () => {
+    try {
+      let { data } = await axios.get("/getuser");
+      setUser(data.user);
+    } catch (err) {
+      setUser(null);
+      console.log(err.message);
+    }
+  };
+  useEffect(() => {
+    getUser();
+  }, []);
 
-function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="wrapper d-flex align-items-center justify-content-center">
+      <Routes>
+        <Route path="/" element={<Welcome user={user} setUser={setUser} />} />
+        <Route path="/profile" element={<Profile user={user} />} />
+      </Routes>
     </div>
   );
-}
+};
 
 export default App;

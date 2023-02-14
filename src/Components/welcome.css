@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap");
+.wrapper-welcome {
+  color: #0b3558;
+}
+.profile {
+  height: 11vmax;
+  width: 11vmax;
+  border-radius: 50%;
+  background-color: #efefef;
+}
+.profile img {
+  height: 6vmax;
+}
+h1 {
+  font-family: "Open Sans";
+  font-weight: 700;
+  font-size: 3.3vmax;
+}
+p {
+  font-size: 1.1vmax;
+  line-height: 1.1em;
+  font-weight: 400;
+}
+@media only screen and (max-width: 580px) {
+  p {
+    font-size: 2vmax;
+  }
+}
